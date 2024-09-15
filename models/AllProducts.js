@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const allProductSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -8,10 +8,10 @@ const allProductSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['plants', 'pots', 'tools', 'gifts'], // Only allows specified categories
+    enum: ["plants", "pots", "tools", "gifts"],
   },
 });
 
-const AllProduct = mongoose.model('AllProduct', allProductSchema);
+const AllProduct = mongoose.model("AllProduct", allProductSchema);
 
 module.exports = AllProduct;
