@@ -5,9 +5,17 @@ const cors = require("cors");
 const authRoutes = require("./routes/auth");
 require("dotenv").config();
 
+
 const app = express();
 const port = process.env.PORT || 4000;
 
+const swaggerUi = require("swagger-ui-express");
+const swaggerFile = require("./swagger-output.json");
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile, {
+  swaggerOptions: {
+    persistAuthorization: true, // ✅ Keeps JWT token after page refresh
+  }
+}));
 app.use(cors());
 app.use(express.json());
 
